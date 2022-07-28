@@ -1,0 +1,20 @@
+fs.readFile(path[, options], callback)#
+
+path : <string> | <Buffer> | <URL> | <integer> filename or file descriptor
+options : <Object> | <string>
+- encoding : <string> | <null> Default: null
+- flag : <string> See support of file system flags. Default: 'r'.
+- signal : <AbortSignal> allows aborting an in-progress readFile
+callback : <Function>
+- err : <Error> | <AggregateError>
+- data : <string> | <Buffer>
+
+Asynchronously reads the entire contents of a file.
+
+import { readFile } from 'node:fs';
+
+readFile('/etc/passwd', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+The callback is passed two arguments (err, data), where data is the contents of the file.
